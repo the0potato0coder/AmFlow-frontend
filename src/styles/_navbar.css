@@ -1,0 +1,49 @@
+/* src/styles/_navbar.css */
+
+.navbar .nav-link {
+  color: #343a40; /* Bootstrap dark text color for good contrast on light navbar */
+  font-weight: 600;
+  transition: color 0.2s ease-in;
+}
+
+.navbar .nav-link:hover {
+  color: #007bff; /* Standard primary color for hover */
+}
+
+.nav-link-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.nav-link-button:active {
+  background-color: #004085;
+  transform: translateY(0);
+}
+
+.navbar .navbar-username { /* For username text */
+  color: #343a40; /* Match dark nav-link color */
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+/* Custom styles for Navbar active link */
+#navbarNav .nav-link.active {
+  font-weight: bold;
+  color: #0056b3 !important; /* A distinct blue color */
+}
+
+/* Responsive adjustments for Navbar */
+@media (min-width: 768px) {
+  .navbar .nav-links-container {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+  .navbar .nav-links-container {
+    gap: 1rem;
+  }
+}

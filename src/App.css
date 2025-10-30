@@ -1,0 +1,181 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles for sticky footer */
+html, body, #root {
+  height: 100%; /* Ensure root and html/body take full height */
+  margin: 0;
+}
+
+.app-layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Changed from 100vh to 100% to work with #root height */
+}
+
+/* Target the main content area (which has .container class from Bootstrap) */
+/* We give it flex-grow: 1 so it expands and pushes the footer down */
+.container {
+  flex: 1; /* or flex-grow: 1; */
+  /* Keep existing Bootstrap margin classes like mt-4, mb-5 as they are for spacing */
+}
+
+/* Minimal styling for the Footer component if it doesn't have its own */
+/* footer {
+  background-color: #f8f9fa; 
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+} */
+/* App.css (existing content before this) */
+
+/* Styles for ApplyLeavePage specific elements */
+
+/* Container for the whole page to control max-width and center it */
+.apply-leave-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  min-height: 80vh; /* Ensure it takes up enough vertical space */
+  padding: 20px; /* Add some padding around the content */
+}
+
+/* Card styling for both the form and the leaves display */
+.apply-leave-form-card,
+.my-leaves-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  width: 100%;
+  max-width: 700px; /* Adjust max-width as needed */
+  padding: 30px; /* More padding */
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+  margin-bottom: 25px; /* Space between the two cards */
+}
+
+/* Adjust heading styles */
+.apply-leave-form-card h2,
+.my-leaves-card h2 {
+  color: #0056b3; /* A nice blue for headings */
+  border-bottom: 2px solid #e0e0e0; /* Subtle underline */
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.my-leaves-card section {
+  margin-top: 20px;
+  border: 1px solid #e9ecef; /* Light border for sections */
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fefefe;
+}
+
+.my-leaves-card section h3 {
+  color: #333;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+}
+
+/* Table styling for leaves */
+.leaves-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.leaves-table th,
+.leaves-table td {
+  padding: 12px 15px;
+  border: 1px solid #e9ecef; /* Light border for cells */
+  text-align: left;
+}
+
+.leaves-table th {
+  background-color: #e9ecef; /* Light gray background for headers */
+  color: #495057;
+  font-weight: bold;
+}
+
+.leaves-table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa; /* Alternate row color */
+}
+
+.leaves-table tbody tr:hover {
+  background-color: #e2e6ea; /* Hover effect */
+}
+
+/* Specific row colors based on leave status */
+.pending-leave-row {
+  background-color: #fffacd; /* Light yellow */
+}
+
+.approved-leave-row {
+  background-color: #d4edda; /* Light green */
+}
+
+.rejected-leave-row {
+  background-color: #f8d7da; /* Light red */
+}
+
+/* Custom adjustments for small screens */
+@media (max-width: 768px) {
+  .apply-leave-form-card,
+  .my-leaves-card {
+    padding: 20px;
+  }
+
+  .leaves-table th,
+  .leaves-table td {
+    padding: 8px 10px;
+    font-size: 0.85em;
+  }
+}
+
+/* Custom styles for Navbar active link */
+#navbarNav .nav-link.active {
+  font-weight: bold;
+  color: #0056b3 !important; /* A distinct blue color */
+}
+
+/* Custom styles for a thinner footer */
+.site-footer {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}

@@ -1,0 +1,76 @@
+/* src/styles/_hero.css */
+
+/* Hero Section Styles */
+.hero-container {
+    background-image: url('../images/hero-bg.png'); /* Placeholder image */
+    background-size: cover;
+    background-position: center;
+    color: black;
+    min-height: 400px;
+    display: block; /* Changed from flex to block based on original provided CSS */
+    /* align-items: center; */ /* Removed as display is block now */
+    /* justify-content: center; */ /* Removed as display is block now */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-size: 100% 100%;
+  }
+  
+  .hero-h1 {
+    padding-top: 2.5rem;
+    padding-right: 16.8rem;
+  }
+  
+  .lead {
+    padding-right: 16.8rem;
+    font-size: large;
+  }
+  
+  .hero-btn {
+    padding-top: 3.125rem;
+    padding-right: 16.8rem;
+  }
+  
+  .about-container {
+    color: rgb(255, 255, 255);
+  }
+  
+  .typewriter-heading {
+    overflow: hidden; /* Ensures the text is hidden until typed */
+    padding: 50 50; /* Consider more specific padding like 50px 50px */
+    white-space: nowrap; /* Prevents the text from wrapping */
+    margin: 0 auto; /* Center the text */
+    letter-spacing: .1em; /* Adjust spacing between characters if needed */
+    animation: typing-loop 4s steps(20, start) infinite; /* Looping typing animation */
+    display: block; /* To make margin auto work for centering */
+  }
+  
+  @keyframes typing-loop {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+    99% {
+      width: 100%;
+    }
+    100% {
+      width: 0; /* Reset width to loop */
+    }
+  }
+  
+  /* Responsive adjustments for Hero Section */
+  @media (max-width: 768px) {
+    .hero-h1,
+    .lead,
+    .hero-btn {
+      padding-right: 0;
+      text-align: center;
+    }
+    .hero-container {
+      background-size: cover; /* Adjust for smaller screens */
+      background-position: center;
+    }
+  }

@@ -1,0 +1,21 @@
+/* src/styles/_layout.css */
+
+/* Styles for sticky footer */
+html, body, #root {
+    height: 100%; /* Ensure root and html/body take full height */
+    margin: 0;
+  }
+  
+  .app-layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Use vh for viewport height to ensure it spans the full screen */
+  }
+  
+  /* Target the main content area (which has .container class from Bootstrap) */
+  /* We give it flex-grow: 1 so it expands and pushes the footer down */
+  .container {
+    flex: 1; /* or flex-grow: 1; */
+    /* Keep existing Bootstrap margin classes like mt-4, mb-5 as they are for spacing */
+  }
+  

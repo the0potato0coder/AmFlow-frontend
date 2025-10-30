@@ -1,0 +1,62 @@
+/* src/styles/_components.css */
+
+/* General container styling */
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  /* Card styling for better visual separation */
+  .card {
+    border-radius: 10px;
+    border: none;
+    overflow: hidden; /* Ensures rounded corners apply to content */
+  }
+  
+  .card-header {
+    border-bottom: none;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  /* Button styling */
+  .btn-dark {
+    background-color: #096B68;
+    border-color: #096B68;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-dark:hover {
+    background-color: #1A936F;
+    border-color: #1A936F;
+    transform: translateY(-2px);
+    color: white;
+  }
+  
+  .btn-dark:active {
+    background-color: #064A49;
+    border-color: #064A49;
+    transform: translateY(0);
+    color: white;
+  }
+  
+  /* Form control styling */
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px 15px;
+  }
+  
+  .form-control:focus {
+    border-color: #1A936F;
+    box-shadow: 0 0 0 0.25rem rgba(26, 147, 111, 0.25);
+  }
+  
+  /* Alert styling */
+  .alert {
+    border-radius: 8px;
+  }

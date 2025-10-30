@@ -1,0 +1,16 @@
+/* src/index.css */
+
+/* Import global base styles */
+@import "./styles/_base.css";
+
+/* Import component-specific styles */
+@import "./styles/_navbar.css";
+@import "./styles/_hero.css";
+@import "./styles/_components.css";
+@import "./styles/_userProfile.css";
+@import "./styles/_layout.css";
+@import "./styles/_footer.css";
+@import "./styles/_appBase.css";
+@import "./styles/_applyLeavePage.css";
+
+/* Any other global styles or overrides can go here if truly necessary */
