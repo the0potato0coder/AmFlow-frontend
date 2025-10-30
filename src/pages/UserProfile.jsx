@@ -52,7 +52,7 @@ const UserProfile = () => {
 
         // If isAdmin is true and userId is present, fetch that specific user for admin view
         // Otherwise, fetch the current user's details
-        const endpoint = isAdmin && userId ? `http://localhost:8081/api/v1/users/${userId}` : `http://localhost:8081/api/v1/users/me`;
+        const endpoint = isAdmin && userId ? `/api/v1/users/${userId}` : `/api/v1/users/me`;
        
         const response = await fetch(endpoint, {
           headers: {
@@ -126,10 +126,10 @@ const UserProfile = () => {
         return;
       }
 
-      let endpoint = `http://localhost:8081/api/v1/users/me`; // Default for current user
+      let endpoint = `/api/v1/users/me`; // Default for current user
       // If admin is viewing another user's profile, use the specific user ID endpoint
       if (isAdmin && userId) {
-        endpoint = `http://localhost:8081/api/v1/users/${userId}`;
+        endpoint = `/api/v1/users/${userId}`;
       }
       
       const payload = {

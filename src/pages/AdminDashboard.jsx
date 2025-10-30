@@ -100,10 +100,10 @@ function AdminDashboard() {
       }
  
       if (requestType === 'leave') {
-        endpoint = `http://localhost:8081/api/v1/leaves/${currentRequest.id}?status=${status}&adminComment=${encodeURIComponent(adminComment)}`;
+        endpoint = `/api/v1/leaves/${currentRequest.id}?status=${status}&adminComment=${encodeURIComponent(adminComment)}`;
       } else if (requestType === 'adjustment') {
         const action = status === 'APPROVED' ? 'approve' : 'reject';
-        endpoint = `http://localhost:8081/api/v1/attendance/adjustments/${currentRequest.id}/${action}`;
+        endpoint = `/api/v1/attendance/adjustments/${currentRequest.id}/${action}`;
       }
      
       await api.put(endpoint, {}, { // Empty payload for PUT with query parameters
