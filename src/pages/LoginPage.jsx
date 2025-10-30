@@ -15,6 +15,7 @@ function LoginPage({ onAuthChange }) {
     setError(''); // Clear previous errors
     setLoading(true); // Start loading
 
+    
     try {
     
       const response = await api.post('/api/v1/auth/authenticate', {
