@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Button, Alert, Card, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../api';
 
 function MarkAttendancePage() {
   const token = localStorage.getItem('token');
@@ -18,8 +18,8 @@ function MarkAttendancePage() {
     setMessage('');
     setError('');
     try {
-      const response = await axios.post(
-        'http://localhost:8081/api/v1/attendance/checkin',
+      const response = await api.post(
+        '/api/v1/attendance/checkin',
         {},
         {
           headers: {
@@ -47,8 +47,8 @@ function MarkAttendancePage() {
     setMessage('');
     setError('');
     try {
-      const response = await axios.put(
-        'http://localhost:8081/api/v1/attendance/checkout',
+      const response = await api.put(
+        '/api/v1/attendance/checkout',
         {},
         {
           headers: {

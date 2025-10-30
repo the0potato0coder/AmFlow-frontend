@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button, Alert, Spinner, Modal, Form, ListGroup, Badge } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../api';
 import { Link } from 'react-router-dom';
  
 function AdminDashboard() {
@@ -25,17 +25,17 @@ function AdminDashboard() {
     setLoading(true);
     setError('');
     try {
-      const leavesResponse = await axios.get('http://localhost:8081/api/v1/leaves/pending', {
+      const leavesResponse = await api.get('/api/v1/leaves/pending', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPendingLeaves(leavesResponse.data);
  
-      const adjustmentsResponse = await axios.get('http://localhost:8081/api/v1/attendance/adjustments/pending', {
+      const adjustmentsResponse = await api.get('/api/v1/attendance/adjustments/pending', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPendingAdjustments(adjustmentsResponse.data);
  
-      const usersResponse = await axios.get('http://localhost:8081/api/v1/users', {
+      const usersResponse = await api.get('/api/v1/users', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(usersResponse.data);
@@ -72,7 +72,7 @@ function AdminDashboard() {
   const handleDeleteUser = async () => {
     if (!userToDelete) return;
     try {
-      await axios.delete(`http://localhost:8081/api/v1/users/${userToDelete.id}`, {
+      await api.delete(`/api/v1/users/${userToDelete.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage(`User ${userToDelete.username} deleted successfully.`);
@@ -106,7 +106,7 @@ function AdminDashboard() {
         endpoint = `http://localhost:8081/api/v1/attendance/adjustments/${currentRequest.id}/${action}`;
       }
      
-      await axios.put(endpoint, {}, { // Empty payload for PUT with query parameters
+      await api.put(endpoint, {}, { // Empty payload for PUT with query parameters
         headers: { Authorization: `Bearer ${token}` },
       });
  

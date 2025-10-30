@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container, Alert, Card, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../api';
 
 function LoginPage({ onAuthChange }) {
   const [username, setUsername] = useState('');
@@ -17,7 +17,7 @@ function LoginPage({ onAuthChange }) {
 
     try {
     
-      const response = await axios.post('http://localhost:8081/api/v1/auth/authenticate', {
+      const response = await api.post('/api/v1/auth/authenticate', {
         username,
         password  
       });
@@ -28,7 +28,7 @@ function LoginPage({ onAuthChange }) {
       // After successful authentication, fetch user details using the new JWT
       // This step is crucial because the /authenticate endpoint only returns the token.
       // We need user role and ID to store in localStorage for routing and display.
-      const userDetailsResponse = await axios.get('http://localhost:8081/api/v1/users/me', {
+      const userDetailsResponse = await api.get('/api/v1/users/me', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Alert, Spinner } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../api';
 
 function ApplyAttendanceAdjustmentPage() {
   const [requestedCheckIn, setRequestedCheckIn] = useState('');
@@ -43,7 +43,7 @@ function ApplyAttendanceAdjustmentPage() {
     }
 
     try {
-      await axios.post('http://localhost:8081/api/v1/attendance/adjustments/request', {
+      await api.post('/api/v1/attendance/adjustments/request', {
         requestedCheckIn: requestedCheckIn + ':00', // Add seconds if not present
         requestedCheckOut: requestedCheckOut + ':00', // Add seconds if not present
         reason,

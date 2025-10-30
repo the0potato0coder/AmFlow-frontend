@@ -9,7 +9,7 @@ import {
   Table,
   Badge,
 } from "react-bootstrap";
-import axios from "axios";
+import api from "../api";
 
 function ApplyLeavePage() {
   const [startDate, setStartDate] = useState("");
@@ -29,8 +29,8 @@ function ApplyLeavePage() {
     setLeavesLoading(true);
     setLeavesError("");
     try {
-      const response = await axios.get(
-        "http://localhost:8081/api/v1/leaves/my-leaves",
+      const response = await api.get(
+        "/api/v1/leaves/my-leaves",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -80,15 +80,17 @@ function ApplyLeavePage() {
     }
 
     try {
-      await axios.post(
-        "http://localhost:8081/api/v1/leaves/apply",
+      await api.post(
+        "/api/v1/leaves/apply",
         {
           startDate,
           endDate,
           reason,
         },
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
       );
 

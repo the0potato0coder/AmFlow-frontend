@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container, Alert, Card, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
+import api from '../api';
 
 function RegistrationPage() {
   const [username, setUsername] = useState('');
@@ -33,7 +33,7 @@ function RegistrationPage() {
     }
 
     try {
-      await axios.post('http://localhost:8081/api/v1/users/register', {
+      await api.post('/api/v1/users/register', {
         username,
         firstName,
         lastName,

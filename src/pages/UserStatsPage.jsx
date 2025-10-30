@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Card, Alert, Spinner, Row, Col, Form, ListGroup } from "react-bootstrap";
-import axios from "axios";
+import api from "../api";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useParams } from "react-router-dom";
 
@@ -53,19 +53,19 @@ function UserStatsPage() {
 
       try {
         const attendanceEndpoint = userRole === 'ADMIN' && userIdFromParams
-          ? `http://localhost:8081/api/v1/attendance/user/${userId}/all`
-          : `http://localhost:8081/api/v1/attendance/my-all`;
+          ? `/api/v1/attendance/user/${userId}/all`
+          : `/api/v1/attendance/my-all`;
 
         const weeklyStatsEndpoint = userRole === 'ADMIN' && userIdFromParams
-          ? `http://localhost:8081/api/v1/attendance/user/${userId}/stats/weekly?year=${selectedWeekYear}&weekOfYear=${selectedWeekOfYear}`
-          : `http://localhost:8081/api/v1/attendance/my-stats/weekly?year=${selectedWeekYear}&weekOfYear=${selectedWeekOfYear}`;
+          ? `/api/v1/attendance/user/${userId}/stats/weekly?year=${selectedWeekYear}&weekOfYear=${selectedWeekOfYear}`
+          : `/api/v1/attendance/my-stats/weekly?year=${selectedWeekYear}&weekOfYear=${selectedWeekOfYear}`;
         
         const monthlyStatsEndpoint = userRole === 'ADMIN' && userIdFromParams
-          ? `http://localhost:8081/api/v1/attendance/user/${userId}/stats/monthly?year=${selectedYear}&month=${selectedMonth}`
-          : `http://localhost:8081/api/v1/attendance/my-stats/monthly?year=${selectedYear}&month=${selectedMonth}`;
+          ? `/api/v1/attendance/user/${userId}/stats/monthly?year=${selectedYear}&month=${selectedMonth}`
+          : `/api/v1/attendance/my-stats/monthly?year=${selectedYear}&month=${selectedMonth}`;
 
         // Fetch all attendance records for the logged-in user using the new endpoint
-        const allAttendanceResponse = await axios.get(
+        const allAttendanceResponse = await api.get(
           attendanceEndpoint,
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -73,7 +73,7 @@ function UserStatsPage() {
         );
 
         // Fetch weekly stats for current week (now using ISO week)
-        const weeklyStatsResponse = await axios.get(
+        const weeklyStatsResponse = await api.get(
           weeklyStatsEndpoint,
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -81,7 +81,7 @@ function UserStatsPage() {
         );
 
         // Fetch monthly stats for selected month and year
-        const monthlyStatsResponse = await axios.get(
+        const monthlyStatsResponse = await api.get(
           monthlyStatsEndpoint,
           {
             headers: { Authorization: `Bearer ${token}` },
